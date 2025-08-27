@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Sparkles, Code2 } from "lucide-react";
 import ParticleSystem from "./ParticleSystem";
-import tchijimaPortrait from "@/assets/tchjima-portrait.jpg";
+import tchijimaPortrait from "@/assets/tchjima-kone-portrait.jpg";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -80,6 +80,10 @@ const HeroSection = () => {
                     src={tchijimaPortrait}
                     alt="Tchjima KONE - Freelance Digital Expert"
                     className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-floating hover-lift"
+                    onError={(e) => {
+                      console.log('Image loading error');
+                      e.currentTarget.style.display = 'none';
+                    }}
                   />
                 </div>
               </div>
