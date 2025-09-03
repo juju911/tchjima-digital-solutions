@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Code, Palette, Settings, ArrowRight, Smartphone, Globe, Bot, Figma, Users, Calendar } from "lucide-react";
+import { Code, Palette, Settings, ArrowRight, Smartphone, Globe, Bot, Figma, Users, Calendar, Brain, CreditCard, Search, FileText, Layers, Monitor } from "lucide-react";
 
 const services = [
   {
@@ -8,27 +8,47 @@ const services = [
     color: "from-blue-500 to-purple-600",
     bgColor: "bg-blue-500/10",
     title: "Développement Web & Mobile",
-    description: "Solutions modernes et performantes pour tous vos besoins digitaux",
+    description: "Solutions complètes : sites vitrines, e-commerce, applications mobiles, logiciels SaaS",
     features: [
-      { icon: Globe, text: "Sites web responsifs" },
-      { icon: Smartphone, text: "Applications mobiles" },
-      { icon: Bot, text: "E-commerce & IA" },
-      { icon: Bot, text: "Chatbot & WhatsApp" }
+      { icon: Globe, text: "Sites vitrines & e-commerce" },
+      { icon: Smartphone, text: "Applications mobiles (Flutter)" },
+      { icon: Bot, text: "Logiciels SaaS personnalisés" },
+      { icon: Search, text: "SEO & optimisation" },
+      { icon: CreditCard, text: "Intégration de paiement" }
     ],
+    languages: "HTML5, CSS3, JavaScript, ReactJS, TypeScript, Flutter",
     price: "À partir de 500k FCFA"
+  },
+  {
+    icon: Brain,
+    color: "from-purple-500 to-blue-600",
+    bgColor: "bg-purple-500/10",
+    title: "Intelligence Artificielle",
+    description: "Chatbots intelligents, automatisation et analyse de données avancée",
+    features: [
+      { icon: Bot, text: "Chatbots conversationnels" },
+      { icon: Settings, text: "Automatisation de processus" },
+      { icon: FileText, text: "Analyse de données" },
+      { icon: Smartphone, text: "WhatsApp Business API" },
+      { icon: Brain, text: "Solutions IA personnalisées" }
+    ],
+    languages: "Python, TensorFlow, OpenAI API, Machine Learning",
+    price: "À partir de 300k FCFA"
   },
   {
     icon: Palette,
     color: "from-pink-500 to-orange-500",
     bgColor: "bg-pink-500/10",
-    title: "Design & UX/UI",
-    description: "Interfaces modernes et expériences utilisateur exceptionnelles",
+    title: "UX/UI Design",
+    description: "Maquettes, prototypes interactifs et design systems modernes",
     features: [
-      { icon: Figma, text: "Design d'interface" },
-      { icon: Palette, text: "Maquettes interactives" },
+      { icon: Figma, text: "Maquettes haute fidélité" },
+      { icon: Layers, text: "Prototypes interactifs" },
       { icon: Users, text: "Expérience utilisateur" },
-      { icon: ArrowRight, text: "Prototypage avancé" }
+      { icon: Palette, text: "Design systems" },
+      { icon: Monitor, text: "Interfaces adaptatives" }
     ],
+    languages: "Adobe XD, Figma, Photoshop, InDesign",
     price: "À partir de 200k FCFA"
   },
   {
@@ -36,13 +56,15 @@ const services = [
     color: "from-green-500 to-teal-500",
     bgColor: "bg-green-500/10",
     title: "Gestion de projet digital",
-    description: "Accompagnement complet de A à Z pour vos projets",
+    description: "Planification Agile, coordination d'équipes et suivi-évaluation complet",
     features: [
-      { icon: Calendar, text: "Méthode Agile" },
-      { icon: Settings, text: "Coordination technique" },
-      { icon: Users, text: "Suivi personnalisé" },
-      { icon: ArrowRight, text: "Support continu" }
+      { icon: Calendar, text: "Planification Agile" },
+      { icon: Users, text: "Coordination d'équipes" },
+      { icon: FileText, text: "Suivi-évaluation" },
+      { icon: Settings, text: "Accompagnement complet" },
+      { icon: ArrowRight, text: "Livraison dans les délais" }
     ],
+    languages: "Jira, Trello, Microsoft Project, Pack Office",
     price: "Sur devis"
   }
 ];
@@ -98,6 +120,11 @@ const ServicesSection = () => {
                 </div>
                 
                 <div className="pt-4 border-t border-border/50">
+                  <div className="mb-4">
+                    <div className="text-xs font-medium text-muted-foreground mb-2">Technologies</div>
+                    <div className="text-sm text-foreground leading-relaxed">{service.languages}</div>
+                  </div>
+                  
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-bold text-lg text-gradient">{service.price}</span>
                   </div>
