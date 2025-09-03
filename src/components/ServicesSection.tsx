@@ -100,7 +100,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group hover-lift shadow-floating border-0 glass-card overflow-hidden relative"
+              className="group hover-lift shadow-floating border-0 glass-card overflow-hidden relative h-full flex flex-col"
             >
               {/* Gradient overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
@@ -115,7 +115,7 @@ const ServicesSection = () => {
                 </p>
               </CardHeader>
               
-              <CardContent className="relative z-10">
+              <CardContent className="relative z-10 flex-1 flex flex-col">
                 <div className="space-y-4 mb-6">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center group/item">
@@ -127,7 +127,7 @@ const ServicesSection = () => {
                   ))}
                 </div>
                 
-                <div className="pt-4 border-t border-border/50">
+                <div className="pt-4 border-t border-border/50 mt-auto">
                   <div className="mb-4">
                     <div className="text-xs font-medium text-muted-foreground mb-2">Technologies</div>
                     <div className="text-sm text-foreground leading-relaxed">{service.languages}</div>

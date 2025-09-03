@@ -3,6 +3,14 @@ import { Award, Shield, Brain, Users } from "lucide-react";
 
 const certifications = [
   {
+    icon: Award,
+    title: "MASTER EN GENIE LOGICIEL",
+    issuer: "Formation Universitaire",
+    color: "from-violet-500 to-purple-600",
+    bgColor: "bg-violet-500/10",
+    description: "Formation approfondie en ingénierie logicielle"
+  },
+  {
     icon: Shield,
     title: "CSCU (Certified Secure Computer User)",
     issuer: "EC-Council",
@@ -57,7 +65,7 @@ const CertificationsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
           {certifications.map((cert, index) => (
             <Card 
               key={index}

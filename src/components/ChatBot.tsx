@@ -293,7 +293,7 @@ Que souhaitez-vous savoir ? 🤔`;
 
   if (!isOpen) {
     return (
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-24 right-6 z-30">
         <Button
           onClick={() => setIsOpen(true)}
           className="h-16 w-16 rounded-full gradient-primary text-white shadow-floating hover-glow group animate-bounce"
@@ -315,7 +315,7 @@ Que souhaitez-vous savoir ? 🤔`;
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-24 right-6 z-30">
       <Card className={cn(
         "w-96 h-[500px] shadow-2xl border-0 glass-card overflow-hidden transition-all duration-300",
         isMinimized ? "h-16" : "h-[500px]"

@@ -2,6 +2,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FolderOpen, ExternalLink, Globe, Smartphone, Palette, Settings, TrendingUp, Users, Calendar } from "lucide-react";
 
+// Import portfolio images
+import ecommerceImage from "@/assets/portfolio-ecommerce.jpg";
+import mobileAppImage from "@/assets/portfolio-mobile-app.jpg";
+import corporateImage from "@/assets/portfolio-corporate.jpg";
+import fintechDesignImage from "@/assets/portfolio-fintech-design.jpg";
+import designSystemImage from "@/assets/portfolio-design-system.jpg";
+import elearningImage from "@/assets/portfolio-elearning.jpg";
+import digitalPmeImage from "@/assets/portfolio-digital-pme.jpg";
+import startupImage from "@/assets/portfolio-startup.jpg";
+import governmentImage from "@/assets/portfolio-government.jpg";
+
 const portfolioCategories = [
   {
     icon: Globe,
@@ -14,21 +25,21 @@ const portfolioCategories = [
         description: "Site e-commerce complet avec paiement mobile et gestion de stock",
         tech: "React, Node.js, Stripe",
         result: "↗ +150% de ventes en ligne",
-        image: "/placeholder.svg"
+        image: ecommerceImage
       },
       {
         name: "Application Mobile SaaS",
         description: "App de gestion d'entreprise avec tableaux de bord temps réel",
         tech: "Flutter, Firebase",
         result: "500+ utilisateurs actifs",
-        image: "/placeholder.svg"
+        image: mobileAppImage
       },
       {
         name: "Site Vitrine Corporate",
         description: "Site web moderne avec CMS et optimisation SEO",
         tech: "React, TypeScript",
         result: "Position #1 Google",
-        image: "/placeholder.svg"
+        image: corporateImage
       }
     ]
   },
@@ -43,21 +54,21 @@ const portfolioCategories = [
         description: "Redesign complet d'une app de paiement mobile",
         tech: "Figma, Adobe XD",
         result: "↗ +40% engagement utilisateur",
-        image: "/placeholder.svg"
+        image: fintechDesignImage
       },
       {
         name: "Design System Startup",
         description: "Création d'un design system évolutif multi-produits",
         tech: "Figma, Storybook",
         result: "Temps de dev divisé par 3",
-        image: "/placeholder.svg"
+        image: designSystemImage
       },
       {
         name: "Maquettes E-learning",
         description: "Interface moderne pour plateforme de formation en ligne",
         tech: "Figma, Prototyping",
         result: "Taux de complétion +60%",
-        image: "/placeholder.svg"
+        image: elearningImage
       }
     ]
   },
@@ -72,21 +83,21 @@ const portfolioCategories = [
         description: "Migration complète vers des outils numériques collaboratifs",
         tech: "Jira, Slack, Google Workspace",
         result: "Productivité +35%",
-        image: "/placeholder.svg"
+        image: digitalPmeImage
       },
       {
         name: "Lancement Startup Tech",
         description: "Accompagnement MVP à la mise sur le marché en 4 mois",
         tech: "Agile, Scrum",
         result: "Délai respecté à 100%",
-        image: "/placeholder.svg"
+        image: startupImage
       },
       {
         name: "Projet Gouvernemental",
         description: "Coordination équipe de 12 dev sur plateforme citoyenne",
         tech: "Project Management",
         result: "50k+ utilisateurs lancés",
-        image: "/placeholder.svg"
+        image: governmentImage
       }
     ]
   }
