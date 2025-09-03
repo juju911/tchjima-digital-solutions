@@ -13,19 +13,22 @@ const portfolioCategories = [
         name: "Plateforme E-commerce",
         description: "Site e-commerce complet avec paiement mobile et gestion de stock",
         tech: "React, Node.js, Stripe",
-        result: "↗ +150% de ventes en ligne"
+        result: "↗ +150% de ventes en ligne",
+        image: "/placeholder.svg"
       },
       {
         name: "Application Mobile SaaS",
         description: "App de gestion d'entreprise avec tableaux de bord temps réel",
         tech: "Flutter, Firebase",
-        result: "500+ utilisateurs actifs"
+        result: "500+ utilisateurs actifs",
+        image: "/placeholder.svg"
       },
       {
         name: "Site Vitrine Corporate",
         description: "Site web moderne avec CMS et optimisation SEO",
         tech: "React, TypeScript",
-        result: "Position #1 Google"
+        result: "Position #1 Google",
+        image: "/placeholder.svg"
       }
     ]
   },
@@ -39,19 +42,22 @@ const portfolioCategories = [
         name: "Refonte UX Application Fintech",
         description: "Redesign complet d'une app de paiement mobile",
         tech: "Figma, Adobe XD",
-        result: "↗ +40% engagement utilisateur"
+        result: "↗ +40% engagement utilisateur",
+        image: "/placeholder.svg"
       },
       {
         name: "Design System Startup",
         description: "Création d'un design system évolutif multi-produits",
         tech: "Figma, Storybook",
-        result: "Temps de dev divisé par 3"
+        result: "Temps de dev divisé par 3",
+        image: "/placeholder.svg"
       },
       {
         name: "Maquettes E-learning",
         description: "Interface moderne pour plateforme de formation en ligne",
         tech: "Figma, Prototyping",
-        result: "Taux de complétion +60%"
+        result: "Taux de complétion +60%",
+        image: "/placeholder.svg"
       }
     ]
   },
@@ -65,19 +71,22 @@ const portfolioCategories = [
         name: "Digitalisation PME (15 employés)",
         description: "Migration complète vers des outils numériques collaboratifs",
         tech: "Jira, Slack, Google Workspace",
-        result: "Productivité +35%"
+        result: "Productivité +35%",
+        image: "/placeholder.svg"
       },
       {
         name: "Lancement Startup Tech",
         description: "Accompagnement MVP à la mise sur le marché en 4 mois",
         tech: "Agile, Scrum",
-        result: "Délai respecté à 100%"
+        result: "Délai respecté à 100%",
+        image: "/placeholder.svg"
       },
       {
         name: "Projet Gouvernemental",
         description: "Coordination équipe de 12 dev sur plateforme citoyenne",
         tech: "Project Management",
-        result: "50k+ utilisateurs lancés"
+        result: "50k+ utilisateurs lancés",
+        image: "/placeholder.svg"
       }
     ]
   }
@@ -123,6 +132,16 @@ const PortfolioSection = () => {
                   <Card key={index} className="group hover-lift shadow-floating border-0 glass-card overflow-hidden relative">
                     {/* Gradient overlay */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                    
+                    {/* Project Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                    </div>
                     
                     <CardHeader className="relative z-10">
                       <CardTitle className="text-lg font-bold mb-2">{project.name}</CardTitle>

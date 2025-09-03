@@ -70,6 +70,14 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const handleDiscussProject = () => {
+    window.open('https://wa.me/2250566997785?text=Bonjour, je viens de votre portfolio et je souhaite discuter de mon projet.', '_blank');
+  };
+
+  const handleCustomQuote = () => {
+    window.open('https://wa.me/2250566997785?text=Bonjour, je souhaiterais obtenir un devis personnalisé pour mon projet.', '_blank');
+  };
+
   return (
     <section className="py-20 bg-muted/30 relative overflow-hidden">
       {/* Background elements */}
@@ -88,7 +96,7 @@ const ServicesSection = () => {
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <Card 
               key={index} 
@@ -130,6 +138,7 @@ const ServicesSection = () => {
                   </div>
                   
                   <Button 
+                    onClick={handleDiscussProject}
                     className="w-full group/btn hover-glow"
                     variant="outline"
                   >
@@ -150,7 +159,7 @@ const ServicesSection = () => {
               <p className="text-muted-foreground mb-6 max-w-md">
                 Chaque projet est unique. Parlons de vos besoins spécifiques pour une solution parfaitement adaptée.
               </p>
-              <Button className="gradient-primary text-white hover-glow">
+              <Button onClick={handleCustomQuote} className="gradient-primary text-white hover-glow">
                 <Bot className="h-4 w-4 mr-2" />
                 Demander un devis personnalisé
               </Button>
