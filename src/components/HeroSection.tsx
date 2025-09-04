@@ -59,6 +59,16 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg"
+                onClick={() => window.open('https://drive.google.com/uc?export=download&id=1YNrJhdVDq-d0qm5T-N-gWzLAP8CcYos3', '_blank')}
+                className="px-8 py-4 text-lg glass-card hover:bg-primary hover:text-white transition-bounce"
+              >
+                <ArrowDown className="h-5 w-5 mr-2" />
+                Télécharger mon CV (PDF)
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="lg"
                 onClick={() => window.open('https://wa.me/2250566997785?text=Bonjour, je viens de votre site et je souhaite discuter de mon projet.', '_blank')}
                 className="px-8 py-4 text-lg glass-card hover:bg-primary hover:text-white transition-bounce"
               >
