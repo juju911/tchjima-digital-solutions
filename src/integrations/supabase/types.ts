@@ -137,6 +137,54 @@ export type Database = {
         }
         Relationships: []
       }
+      quotes: {
+        Row: {
+          budget_range: string | null
+          company: string | null
+          created_at: string
+          description: string
+          email: string
+          id: string
+          name: string
+          phone: string | null
+          project_type: string
+          source: string | null
+          status: string | null
+          timeline: string | null
+          updated_at: string
+        }
+        Insert: {
+          budget_range?: string | null
+          company?: string | null
+          created_at?: string
+          description: string
+          email: string
+          id?: string
+          name: string
+          phone?: string | null
+          project_type: string
+          source?: string | null
+          status?: string | null
+          timeline?: string | null
+          updated_at?: string
+        }
+        Update: {
+          budget_range?: string | null
+          company?: string | null
+          created_at?: string
+          description?: string
+          email?: string
+          id?: string
+          name?: string
+          phone?: string | null
+          project_type?: string
+          source?: string | null
+          status?: string | null
+          timeline?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       registrations: {
         Row: {
           created_at: string
