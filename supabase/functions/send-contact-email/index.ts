@@ -15,15 +15,12 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-interface QuoteNotificationRequest {
+interface ContactRequest {
   name: string;
   email: string;
-  phone: string;
-  company: string;
-  projectType: string;
-  budgetRange: string;
-  description: string;
-  timeline: string;
+  phone?: string;
+  message: string;
+  subject?: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -33,49 +30,41 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const quoteData: QuoteNotificationRequest = await req.json();
+    const contactData: ContactRequest = await req.json();
 
     // Créer une connexion SMTP
     const client = new SmtpClient();
     
     await client.connectTLS(smtpConfig);
     
-    // Envoyer l'email de notification à Tchjima
+    // Envoyer l'email de contact
     await client.send({
       from: `${Deno.env.get("SMTP_FROM_NAME")} <${Deno.env.get("SMTP_FROM_EMAIL")}>`,
       to: Deno.env.get("SMTP_TO_EMAIL")!,
-      subject: `Nouvelle demande de devis - ${quoteData.name}`,
+      subject: `${contactData.subject || 'Nouveau message de contact'} - ${contactData.name}`,
       content: `
-        <h1>Nouvelle demande de devis reçue</h1>
-        <h2>Informations du client</h2>
+        <h1>Nouveau message de contact reçu</h1>
+        <h2>Informations du contact</h2>
         <ul>
-          <li><strong>Nom:</strong> ${quoteData.name}</li>
-          <li><strong>Email:</strong> ${quoteData.email}</li>
-          <li><strong>Téléphone:</strong> ${quoteData.phone}</li>
-          <li><strong>Entreprise:</strong> ${quoteData.company}</li>
+          <li><strong>Nom:</strong> ${contactData.name}</li>
+          <li><strong>Email:</strong> ${contactData.email}</li>
+          ${contactData.phone ? `<li><strong>Téléphone:</strong> ${contactData.phone}</li>` : ''}
         </ul>
         
-        <h2>Détails du projet</h2>
-        <ul>
-          <li><strong>Type de projet:</strong> ${quoteData.projectType}</li>
-          <li><strong>Budget estimé:</strong> ${quoteData.budgetRange}</li>
-          <li><strong>Délai souhaité:</strong> ${quoteData.timeline}</li>
-        </ul>
-        
-        <h2>Description</h2>
-        <p>${quoteData.description}</p>
+        <h2>Message</h2>
+        <p>${contactData.message.replace(/\n/g, '<br>')}</p>
         
         <hr>
-        <p><em>Cette demande a été envoyée depuis votre site web.</em></p>
+        <p><em>Ce message a été envoyé depuis votre site web.</em></p>
       `,
       "content-type": "text/html; charset=utf-8",
     });
 
     await client.close();
 
-    console.log("Email sent successfully via SMTP");
+    console.log("Contact email sent successfully via SMTP");
 
-    return new Response(JSON.stringify({ success: true }), {
+    return new Response(JSON.stringify({ success: true, message: "Votre message a été envoyé avec succès" }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
@@ -83,9 +72,13 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
   } catch (error: any) {
-    console.error("Error in send-quote-notification function:", error);
+    console.error("Error in send-contact-email function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ 
+        success: false, 
+        error: error.message,
+        message: "Erreur lors de l'envoi du message, merci de réessayer" 
+      }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

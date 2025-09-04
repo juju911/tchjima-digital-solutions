@@ -65,13 +65,13 @@ const QuoteForm = () => {
 
       // Send email notification via edge function
       try {
-        await fetch('/functions/v1/send-quote-notification', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData)
+        const { error: emailError } = await supabase.functions.invoke('send-quote-notification', {
+          body: formData
         });
+        
+        if (emailError) {
+          console.log('Email notification failed:', emailError);
+        }
       } catch (emailError) {
         console.log('Email notification failed:', emailError);
       }
@@ -94,8 +94,8 @@ ${formData.description}`;
       window.open(whatsappUrl, '_blank');
 
       toast({
-        title: "Demande envoyée !",
-        description: "Votre demande de devis a été enregistrée. Vous allez être redirigé vers WhatsApp.",
+        title: "Demande envoyée avec succès !",
+        description: "Votre devis a été enregistré et envoyé par email sécurisé. Je vous recontacterai rapidement.",
       });
 
       // Reset form
@@ -271,7 +271,7 @@ ${formData.description}`;
 
           <div className="text-center text-sm text-muted-foreground">
             <MessageCircle className="h-4 w-4 inline mr-1" />
-            Après envoi, vous serez redirigé vers WhatsApp pour finaliser la discussion
+            Votre demande sera envoyée par email sécurisé. WhatsApp s'ouvrira également pour une discussion directe.
           </div>
         </form>
       </CardContent>

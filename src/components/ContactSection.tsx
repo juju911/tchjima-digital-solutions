@@ -6,9 +6,11 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { Send, Mail } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,26 +18,79 @@ const ContactSection = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    const whatsappMessage = `Nouvelle demande de devis depuis le site:
-    
+    try {
+      // Sauvegarder le contact dans la base de données
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          subject: 'Demande de devis depuis le site'
+        });
+
+      if (dbError) {
+        console.error('Erreur sauvegarde DB:', dbError);
+        throw new Error('Erreur lors de la sauvegarde');
+      }
+
+      // Envoyer l'email via la fonction SMTP
+      const { data, error: emailError } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          subject: 'Nouvelle demande de devis depuis le site'
+        }
+      });
+
+      if (emailError) {
+        console.error('Erreur envoi email:', emailError);
+        throw new Error('Erreur lors de l\'envoi de l\'email');
+      }
+
+      // Afficher le message de succès
+      toast({
+        title: "Message envoyé avec succès !",
+        description: "Votre demande a bien été transmise. Je vous recontacterai rapidement.",
+      });
+
+      // Optionnel: Ouvrir WhatsApp comme méthode alternative
+      const whatsappMessage = `Nouvelle demande de devis depuis le site:
+      
 Nom: ${formData.name}
 Email: ${formData.email}
 Téléphone: ${formData.phone}
 Message: ${formData.message}`;
 
-    const whatsappUrl = `https://wa.me/2250566997785?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappUrl, '_blank');
-    
-    toast({
-      title: "Message envoyé !",
-      description: "Vous allez être redirigé vers WhatsApp pour finaliser l'envoi.",
-    });
-    
-    // Reset form
-    setFormData({ name: '', email: '', phone: '', message: '' });
+      const whatsappUrl = `https://wa.me/2250566997785?text=${encodeURIComponent(whatsappMessage)}`;
+      
+      // Proposer WhatsApp en complément
+      setTimeout(() => {
+        if (window.confirm("Voulez-vous également m'envoyer un message WhatsApp ?")) {
+          window.open(whatsappUrl, '_blank');
+        }
+      }, 1000);
+
+      // Reset form
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      
+    } catch (error) {
+      console.error('Erreur:', error);
+      toast({
+        title: "Erreur lors de l'envoi",
+        description: "Une erreur s'est produite. Merci de réessayer ou de me contacter directement.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -120,13 +175,14 @@ Message: ${formData.message}`;
                   type="submit" 
                   size="lg" 
                   className="w-full gradient-primary text-white hover:scale-105 transition-smooth shadow-elegant"
+                  disabled={isSubmitting}
                 >
                   <Send className="mr-2 h-5 w-5" />
-                  Envoyer ma demande
+                  {isSubmitting ? 'Envoi en cours...' : 'Envoyer ma demande'}
                 </Button>
                 
                 <p className="text-xs text-muted-foreground text-center">
-                  En envoyant ce formulaire, vous serez redirigé vers WhatsApp pour finaliser votre demande.
+                  Votre message sera envoyé par email sécurisé. Vous recevrez optionnellement une redirection vers WhatsApp.
                 </p>
               </form>
             </CardContent>
