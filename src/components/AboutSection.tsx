@@ -4,7 +4,7 @@ import { User, Target, Lightbulb, Award } from "lucide-react";
 const stats = [
   { icon: Target, value: "50+", label: "Projets réalisés" },
   { icon: Award, value: "100%", label: "Satisfaction client" },
-  { icon: Lightbulb, value: "3+", label: "Ans d'expérience" },
+  { icon: Lightbulb, value: "8+", label: "Ans d'expérience" },
 ];
 
 const AboutSection = () => {
