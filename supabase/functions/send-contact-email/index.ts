@@ -3,10 +3,10 @@ import { SmtpClient } from "https://deno.land/x/smtp/mod.ts";
 
 // Configuration SMTP
 const smtpConfig = {
-  hostname: Deno.env.get("SMTP_HOST")!,
+  hostname: Deno.env.get("SMTP_HOST")?.trim() || "",
   port: parseInt(Deno.env.get("SMTP_PORT") || "465"),
-  username: Deno.env.get("SMTP_USERNAME")!,
-  password: Deno.env.get("SMTP_PASSWORD")!,
+  username: Deno.env.get("SMTP_USERNAME")?.trim() || "",
+  password: Deno.env.get("SMTP_PASSWORD") || "",
 };
 
 const corsHeaders = {
