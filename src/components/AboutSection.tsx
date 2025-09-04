@@ -2,9 +2,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { User, Target, Lightbulb, Award } from "lucide-react";
 
 const stats = [
-  { icon: Target, value: "50+", label: "Projets réalisés" },
+  { icon: Target, value: "50+", label: "Projets réalisés en Côte d'Ivoire" },
   { icon: Award, value: "100%", label: "Satisfaction client" },
-  { icon: Lightbulb, value: "8+", label: "Ans d'expérience" },
+  { icon: Lightbulb, value: "8+", label: "Ans d'expérience IT" },
 ];
 
 const AboutSection = () => {
@@ -30,20 +30,20 @@ const AboutSection = () => {
                 <CardContent className="p-8 md:p-12">
                   <div className="text-lg leading-relaxed space-y-6">
                     <p className="text-2xl font-light text-foreground">
-                      Je suis <span className="text-gradient font-bold">Tchjima KONE</span>, freelance digital basé à Abidjan, passionné par l'innovation technologique et le design.
+                      Je suis <span className="text-gradient font-bold">Tchjima KONE</span>, développeur web freelance Côte d'Ivoire basé à Abidjan, passionné par l'innovation technologique et expert en cybersécurité.
                     </p>
                     
                     <p className="text-muted-foreground">
-                      Mon parcours m'a permis d'évoluer à la fois comme développeur web/mobile, designer UX/UI et gestionnaire de projet digital, ce qui me donne une vision globale et polyvalente des besoins numériques.
+                      Avec <strong>8 ans d'expérience</strong> dans le développement web & mobile Abidjan, le design UX/UI freelance et la gestion de projet IT, j'accompagne les entreprises ivoiriennes dans leur transformation digitale. Certifié <strong>CSCU (Certified Secure Computer User)</strong>, <strong>CND (Computer Network Defense)</strong> et <strong>SOC (Security Operations Center)</strong>, actuellement en formation <strong>PMP (Project Management Professional)</strong>.
                     </p>
                     
                     <p className="text-muted-foreground">
-                      J'ai accompagné plusieurs entrepreneurs, startups et entreprises dans la mise en place de solutions modernes : sites vitrines, e-commerce, applications mobiles, maquettes interactives et projets intégrant chatbot et IA.
+                      Spécialisé en SEO et intégration paiement en ligne Abidjan, j'ai accompagné plusieurs entrepreneurs et startups en Côte d'Ivoire : sites vitrines optimisés, plateformes e-commerce avec mobile money, applications mobiles performantes et projets intégrant chatbot IA.
                     </p>
                     
                     <div className="p-6 rounded-2xl gradient-primary text-white mt-8">
                       <p className="font-medium text-lg">
-                        Mon objectif est clair : créer des outils digitaux qui ne sont pas seulement beaux, mais surtout utiles, performants et alignés sur vos objectifs business.
+                        Mon objectif : créer des solutions digitales performantes, sécurisées et adaptées aux besoins spécifiques des entreprises ivoiriennes, tout en respectant les standards internationaux de cybersécurité et de gestion de projet.
                       </p>
                     </div>
                   </div>

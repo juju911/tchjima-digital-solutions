@@ -39,11 +39,11 @@ const HeroSection = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-gradient leading-tight">
-              Je donne vie à vos projets digitaux !
+              Développeur web freelance à Abidjan - Je donne vie à vos projets digitaux !
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              Développeur Web/Mobile, Designer UX/UI & Gestionnaire de projet basé à Abidjan
+              <strong>Tchjima KONE</strong>, développeur web freelance Côte d'Ivoire spécialisé en développement mobile Abidjan, designer UX/UI freelance Abidjan, expert cybersécurité Côte d'Ivoire et gestion de projet IT Abidjan. 8 ans d'expérience au service de vos projets numériques.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -88,7 +88,7 @@ const HeroSection = () => {
                 <div className="bg-background rounded-full p-2">
                   <img 
                     src={tchijimaPortrait}
-                    alt="Tchjima KONE - Freelance Digital Expert"
+                    alt="Tchjima KONE - Développeur web freelance à Abidjan, expert UX/UI design, cybersécurité et gestion de projet IT en Côte d'Ivoire"
                     className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-floating hover-lift"
                     onError={(e) => {
                       console.log('Image loading error');
