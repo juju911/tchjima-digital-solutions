@@ -2,102 +2,75 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FolderOpen, ExternalLink, Globe, Smartphone, Palette, Settings, TrendingUp, Users, Calendar } from "lucide-react";
 
-// Import portfolio images
-import ecommerceImage from "@/assets/portfolio-ecommerce.jpg";
-import mobileAppImage from "@/assets/portfolio-mobile-app.jpg";
-import corporateImage from "@/assets/portfolio-corporate.jpg";
-import fintechDesignImage from "@/assets/portfolio-fintech-design.jpg";
-import designSystemImage from "@/assets/portfolio-design-system.jpg";
-import elearningImage from "@/assets/portfolio-elearning.jpg";
-import digitalPmeImage from "@/assets/portfolio-digital-pme.jpg";
-import startupImage from "@/assets/portfolio-startup.jpg";
-import governmentImage from "@/assets/portfolio-government.jpg";
+// Import portfolio images - Real projects
+import projectAgrichain from "@/assets/project-agrichain.jpg";
+import projectCihabitat from "@/assets/project-cihabitat.jpg";
+import projectFupa from "@/assets/project-fupa.jpg";
+import projectFoire from "@/assets/project-foire.jpg";
+import projectSeka from "@/assets/project-seka.jpg";
 
 const portfolioCategories = [
   {
     icon: Globe,
-    title: "Développement Web & Mobile",
+    title: "Applications SaaS & Web",
     color: "from-blue-500 to-purple-600",
     bgColor: "bg-blue-500/10",
     projects: [
       {
-        name: "Plateforme E-commerce",
-        description: "Site e-commerce complet avec paiement mobile et gestion de stock",
-        tech: "React, Node.js, Stripe",
-        result: "↗ +150% de ventes en ligne",
-        image: ecommerceImage
+        name: "AgriChain+",
+        description: "Plateforme SaaS de gestion agricole avec IA pour prévoir la demande et gérer les stocks",
+        tech: "React, Node.js, Intelligence Artificielle",
+        result: "↗ Réduction de 30% des pertes",
+        image: projectAgrichain,
+        url: "https://agrichain.konetchjima.com"
       },
       {
-        name: "Application Mobile SaaS",
-        description: "App de gestion d'entreprise avec tableaux de bord temps réel",
-        tech: "Flutter, Firebase",
-        result: "500+ utilisateurs actifs",
-        image: mobileAppImage
-      },
-      {
-        name: "Site Vitrine Corporate",
-        description: "Site web moderne avec CMS et optimisation SEO",
-        tech: "React, TypeScript",
-        result: "Position #1 Google",
-        image: corporateImage
+        name: "FUPA - Formation Universitaire",
+        description: "Plateforme éducative avec système d'inscription et gestion des formations",
+        tech: "Vue.js, Laravel, Base de données",
+        result: "2000+ étudiants inscrits",
+        image: projectFupa,
+        url: "https://ecole.konetchjima.com"
       }
     ]
   },
   {
     icon: Palette,
-    title: "UX/UI Design",
+    title: "Sites Vitrines Corporate", 
     color: "from-pink-500 to-orange-500", 
     bgColor: "bg-pink-500/10",
     projects: [
       {
-        name: "Refonte UX Application Fintech",
-        description: "Redesign complet d'une app de paiement mobile",
-        tech: "Figma, Adobe XD",
-        result: "↗ +40% engagement utilisateur",
-        image: fintechDesignImage
+        name: "CI Habitat Corporate",
+        description: "Site vitrine corporate pour entreprise immobilière avec gestion de projets intégrée",
+        tech: "React, CMS, Design Responsive",
+        result: "↗ 50+ projets présentés",
+        image: projectCihabitat,
+        url: "https://cihabitat.konetchjima.com"
       },
       {
-        name: "Design System Startup",
-        description: "Création d'un design system évolutif multi-produits",
-        tech: "Figma, Storybook",
-        result: "Temps de dev divisé par 3",
-        image: designSystemImage
-      },
-      {
-        name: "Maquettes E-learning",
-        description: "Interface moderne pour plateforme de formation en ligne",
-        tech: "Figma, Prototyping",
-        result: "Taux de complétion +60%",
-        image: elearningImage
+        name: "SEKA C. Vanessa - Mode",
+        description: "Site vitrine élégant pour créatrice de mode traditionnelle africaine",
+        tech: "Design UX/UI, Photographie",
+        result: "Art vestimentaire sublimé",
+        image: projectSeka,
+        url: "https://sekavanessa.konetchjima.com"
       }
     ]
   },
   {
     icon: Settings,
-    title: "Gestion de Projet Digital",
+    title: "Événementiel & Landing Pages",
     color: "from-green-500 to-teal-500",
     bgColor: "bg-green-500/10", 
     projects: [
       {
-        name: "Digitalisation PME (15 employés)",
-        description: "Migration complète vers des outils numériques collaboratifs",
-        tech: "Jira, Slack, Google Workspace",
-        result: "Productivité +35%",
-        image: digitalPmeImage
-      },
-      {
-        name: "Lancement Startup Tech",
-        description: "Accompagnement MVP à la mise sur le marché en 4 mois",
-        tech: "Agile, Scrum",
-        result: "Délai respecté à 100%",
-        image: startupImage
-      },
-      {
-        name: "Projet Gouvernemental",
-        description: "Coordination équipe de 12 dev sur plateforme citoyenne",
-        tech: "Project Management",
-        result: "50k+ utilisateurs lancés",
-        image: governmentImage
+        name: "La Foire aux Écoles",
+        description: "Site événementiel avec système d'inscription et compte à rebours interactif",
+        tech: "HTML5, CSS3, JavaScript",
+        result: "Événement organisé avec succès",
+        image: projectFoire,
+        url: "https://foire.konetchjima.com"
       }
     ]
   }
@@ -174,6 +147,17 @@ const PortfolioSection = () => {
                             <span className="text-sm font-medium text-accent">{project.result}</span>
                           </div>
                         </div>
+                        
+                        {project.url && (
+                          <Button 
+                            onClick={() => window.open(project.url, '_blank')}
+                            className="w-full mt-4"
+                            variant="outline"
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Voir le site
+                          </Button>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
