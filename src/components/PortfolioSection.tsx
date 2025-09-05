@@ -8,11 +8,12 @@ import projectCihabitat from "@/assets/project-cihabitat.jpg";
 import projectFupa from "@/assets/project-fupa.jpg";
 import projectFoire from "@/assets/project-foire.jpg";
 import projectSeka from "@/assets/project-seka.jpg";
+import projectOasis from "@/assets/project-oasis.jpg";
 
 const portfolioCategories = [
   {
-    icon: Globe,
-    title: "Applications SaaS & Web",
+    icon: Settings,
+    title: "Applications SaaS",
     color: "from-blue-500 to-purple-600",
     bgColor: "bg-blue-500/10",
     projects: [
@@ -25,7 +26,7 @@ const portfolioCategories = [
         url: "https://agrichain.konetchjima.com"
       },
       {
-        name: "FUPA - Formation Universitaire",
+        name: "Site École et Gestion",
         description: "Plateforme éducative avec système d'inscription et gestion des formations",
         tech: "Vue.js, Laravel, Base de données",
         result: "2000+ étudiants inscrits",
@@ -35,13 +36,13 @@ const portfolioCategories = [
     ]
   },
   {
-    icon: Palette,
-    title: "Sites Vitrines Corporate", 
+    icon: Globe,
+    title: "Sites Vitrines", 
     color: "from-pink-500 to-orange-500", 
     bgColor: "bg-pink-500/10",
     projects: [
       {
-        name: "CI Habitat Corporate",
+        name: "Agence Immobilière CI Habitat",
         description: "Site vitrine corporate pour entreprise immobilière avec gestion de projets intégrée",
         tech: "React, CMS, Design Responsive",
         result: "↗ 50+ projets présentés",
@@ -49,18 +50,18 @@ const portfolioCategories = [
         url: "https://cihabitat.konetchjima.com"
       },
       {
-        name: "SEKA C. Vanessa - Mode",
-        description: "Site vitrine élégant pour créatrice de mode traditionnelle africaine",
-        tech: "Design UX/UI, Photographie",
-        result: "Art vestimentaire sublimé",
-        image: projectSeka,
-        url: "https://sekavanessa.konetchjima.com"
+        name: "Oasis de la Maternité",
+        description: "Site vitrine pour clinique de maternité avec suivi médical complet et prise de rendez-vous",
+        tech: "React, Node.js, Design UX/UI",
+        result: "500+ mamans accompagnées",
+        image: projectOasis,
+        url: "https://oasismaternite.konetchjima.com"
       }
     ]
   },
   {
-    icon: Settings,
-    title: "Événementiel & Landing Pages",
+    icon: Palette,
+    title: "Landing Pages",
     color: "from-green-500 to-teal-500",
     bgColor: "bg-green-500/10", 
     projects: [
@@ -71,6 +72,14 @@ const portfolioCategories = [
         result: "Événement organisé avec succès",
         image: projectFoire,
         url: "https://foire.konetchjima.com"
+      },
+      {
+        name: "Seka C. Vanessa",
+        description: "Landing page élégante pour créatrice de mode traditionnelle africaine",
+        tech: "Design UX/UI, Photographie",
+        result: "Art vestimentaire sublimé",
+        image: projectSeka,
+        url: "https://sekavanessa.konetchjima.com"
       }
     ]
   }
